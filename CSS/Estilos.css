@@ -76,6 +76,15 @@ footer {
     margin-top: 10px;
     padding: 10px;
 }
+
+.information {
+    display: none;
+    background-color: #ffffff41;
+    color: #ffffffb7;
+    border-radius: 10px;
+    margin-top: 10px;
+    padding: 10px;
+}
 #Estudio{
     width: 600px;
     height: 400px;
