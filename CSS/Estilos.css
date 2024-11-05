@@ -27,25 +27,54 @@ li a:hover {
     background-color: #111;
 }
 #logo1{
+    margin-top: 50px;
     height: 300px;
     width: 300px;
+    margin-bottom: 50px;
 }
 #sub1{
     margin-top: 100px;
 }
 #OG{
-    margin-top: 100px;
+    margin-top: 30px;
 }
 #general{
     text-align: justify;
 }
+#OE{
+    margin-bottom: 50px;
+}
+
+#Justificación{
+    margin-top: 50px;
+}
 #just{
     text-align: justify;
+    margin-bottom: 30px;
 }
+
 #Prob{
     height: 400px;
     width: 400px;
 }
+
+#Videos{
+margin-top: 50px;
+margin-bottom: 50px;
+}
+
+#res{
+    margin-top: 10px;
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
+#sum{
+    margin-top: 10px;
+    text-align: justify;
+    margin-bottom: 50px;
+}
+
 .cont{
     text-align: justify;
 }
