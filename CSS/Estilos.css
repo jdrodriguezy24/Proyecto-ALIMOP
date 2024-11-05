@@ -67,12 +67,20 @@ margin-bottom: 50px;
     margin-top: 10px;
     text-align: justify;
     margin-bottom: 50px;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7)
 }
 
 #sum{
     margin-top: 10px;
     text-align: justify;
     margin-bottom: 50px;
+    border: 2px solid white;
+    padding: 10px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.7)
 }
 
 .cont{
