@@ -1,138 +1,384 @@
-body {
-    color: white;
-    border: 30px solid rgb(1, 17, 17);
-    padding: 20px;
-    font-family: "Arial", sans-serif;
-    font-size: 20px;
+/* Variables globales */
+:root {
+    --color-primary: #0a4d68;
+    --color-secondary: #088395;
+    --color-accent: #05bfdb;
+    --color-light: #00ffca;
+    --color-dark: #1a1a1a;
+    --color-text: #333333;
+    --color-text-light: #ffffff;
+    --font-primary: 'Roboto', sans-serif;
+    --font-secondary: 'Open Sans', sans-serif;
+    --transition: all 0.3s ease-in-out;
 }
-ul {
-    list-style-type: none;
+
+/* Estilos base */
+* {
     margin: 0;
     padding: 0;
-    background-color: #fffcfc4b;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-primary);
+    line-height: 1.6;
+    color: var(--color-text-light);
+    background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('../IMG/ImgFondo2.jpg');
+    background-size: cover;
+    background-attachment: fixed;
+    min-height: 100vh;
+    padding: 0;
+}
+
+/* Header y navegación */
+.site-header {
+    background-color: rgba(10, 77, 104, 0.95);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+
+.main-navigation ul {
+    display: flex;
+    justify-content: center;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+}
+
+.main-navigation li a {
+    color: var(--color-text-light);
+    text-decoration: none;
+    padding: 1rem 1.5rem;
+    display: block;
+    transition: var(--transition);
+}
+
+.main-navigation li a:hover {
+    background-color: var(--color-accent);
+    color: var(--color-dark);
+}
+
+/* Hero section */
+.hero {
+    padding: 8rem 2rem 4rem;
+    text-align: center;
+    color: var(--color-text-light);
+}
+
+.hero .logo {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    margin-bottom: 2rem;
+    box-shadow: 0 0 20px rgba(0,255,202,0.3);
+}
+
+.section {
+    padding: 4rem 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    background-color: rgba(255, 255, 255, 0.95);
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    color: var(--color-text);
+}
+
+.section h2 {
+    color: var(--color-primary);
+    text-align: center;
+    margin-bottom: 2rem;
+    font-size: 2.5rem;
+}
+
+/* Objetivos */
+.objetivo-general, .objetivos-especificos {
+    margin-bottom: 2rem;
+}
+
+.objetivos-especificos ul {
+    list-style: none;
+    padding-left: 1.5rem;
+}
+
+.objetivos-especificos li {
+    margin-bottom: 1rem;
+    position: relative;
+    padding-left: 1.5rem;
+}
+
+.objetivos-especificos li::before {
+    content: "▹";
+    color: var(--color-accent);
+    position: absolute;
+    left: 0;
+}
+
+/* Problemática y estadísticas */
+.stats-container {
+    background-color: var(--color-primary);
+    color: var(--color-text-light);
+    padding: 2rem;
+    border-radius: 8px;
+    margin-bottom: 2rem;
+}
+
+.statistics {
+    list-style: none;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.statistics li {
+    padding: 1rem;
+    text-align: center;
+    border-left: 3px solid var(--color-light);
+}
+
+.statistics strong {
+    display: block;
+    font-size: 1.5rem;
+    color: var(--color-light);
+}
+
+/* Imágenes y multimedia */
+.problem-images {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+figure {
+    margin: 0;
+    text-align: center;
+}
+
+figure img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+.video-container {
+    margin: 3rem 0;
+}
+
+.video-container video {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    display: block;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.2);
+}
+
+/* Resumen y Abstract */
+.content-bilingual {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin: 2rem auto;
+}
+
+.section-title {
+    color: var(--color-primary); /* Cambiamos el color del título */
+    font-size: 2rem;
+    margin-bottom: 1.5rem;
+    text-align: center;
+    font-weight: bold;
+}
+
+.resumen-es, .resumen-en {
+    background-color: var(--color-secondary);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+}
+
+/* Añadir estos estilos para el texto de los párrafos */
+.resumen-es p, .resumen-en p {
+    color: var(--color-text-light); /* Color para el texto normal */
+}
+
+/* Estilo para el texto en negrita dentro de los párrafos */
+.resumen-es strong, .resumen-en strong {
+    color: var(--color-light); /* Color para el texto en negrita */
+    font-weight: bold;
+}
+
+.content {
+    margin-top: 1rem;
+}
+
+/* Equipo */
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.team-member {
+    background-color: rgba(255, 255, 255, 0.9);
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: all 0.3s ease;
+    cursor: pointer;
+    position: relative;
     overflow: hidden;
 }
 
-li {
-    float: left;
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
 }
 
-li a {
-    display: block;
-    color: white;
-    text-align: center;
-    padding: 14px 16px;
-    text-decoration: none;
+.member-bio {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
-li a:hover {
-    background-color: #111;
+.member-bio.expanded {
+    max-height: 500px; /* Ajusta este valor según sea necesario */
+    transition: max-height 0.5s ease-in;
 }
 
-#logo1{
-    margin-top: 50px;
-    height: 300px;
-    width: 300px;
-    margin-bottom: 50px;
-    border-radius: 10px;
+.team-member h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 0.5rem;
 }
 
-#sub1{
-    margin-top: 100px;
+.team-member h3::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
 }
 
-#OG{
-    margin-top: 30px;
-}
-
-#general{
-    text-align: justify;
-}
-
-#OE{
-    margin-bottom: 50px;
-}
-
-#Justificación{
-    margin-top: 50px;
-}
-
-#just{
-    text-align: justify;
-    margin-bottom: 30px;
-}
-
-#Prob{
-    height: 400px;
-    width: 400px;
-}
-
-#Videos{
-    margin-top: 50px;
-    margin-bottom: 50px;
-}
-
-#res{
-    margin-top: 10px;
-    text-align: justify;
-    margin-bottom: 50px;
-    border: 2px solid white;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgba(32, 31, 31, 0.7)
-}
-
-#sum{
-    margin-top: 10px;
-    text-align: justify;
-    margin-bottom: 50px;
-    border: 2px solid white;
-    padding: 10px;
-    border-radius: 5px;
-    background-color: rgba(32, 31, 31, 0.7)
-}
-
-.cont{
-    text-align: justify;
-}
-
-.cuadro {
-    background-color: #ffffff41;
-    color: #ffffffb7;
-    border-radius: 10px;
-    margin-bottom: 20px;
-    padding: 10px;
-    cursor: pointer;
-}
-  
-.informacion {
-    display: none;
-    background-color: #ffffff41;
-    color: #ffffffb7;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-}
-
-.information {
-    display: none;
-    background-color: #ffffff41;
-    color: #ffffffb7;
-    border-radius: 10px;
-    margin-top: 10px;
-    padding: 10px;
-}
 #Estudio{
     width: 600px;
     height: 400px;
 }
 
-footer {
-    background-color:  #ffffff41; 
-    color: white; 
-    text-align: center; 
-    padding: 20px; 
-    position: relative; 
-    width: 100%; 
+/* Footer */
+.site-footer {
+    background-color: var(--color-dark);
+    color: var(--color-text-light);
+    text-align: center;
+    padding: 2rem;
+    position: relative;
+    width: 100%;
+    margin-top: 4rem;
+}
+
+/* Estilos del equipo */
+.team-section {
+    background-color: rgba(255, 255, 255, 0.95);
+    padding: 4rem 2rem;
+    margin: 2rem auto;
+    max-width: 1200px;
+    border-radius: 10px;
+}
+
+.team-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    padding: 2rem 0;
+}
+
+.team-member {
+    background-color: white;
+    padding: 2rem;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+}
+
+.team-member:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+}
+
+.member-bio {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s ease;
+    opacity: 0;
+    transform: translateY(-10px);
+}
+
+.member-bio.expanded {
+    max-height: 1000px;
+    opacity: 1;
+    transform: translateY(0);
+    transition: max-height 0.5s ease, opacity 0.3s ease, transform 0.3s ease;
+}
+
+.team-member h3 {
+    color: var(--color-primary);
+    margin-bottom: 1rem;
+    font-size: 1.5rem;
+    position: relative;
+    padding-bottom: 0.5rem;
+}
+
+.team-member h3::after {
+    content: '';
+    position: absolute;
     bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 2px;
+    background-color: var(--color-accent);
+    transition: width 0.3s ease;
+}
+
+.team-member:hover h3::after {
+    width: 100%;
+}
+
+.member-bio div[lang] {
+    margin-bottom: 1.5rem;
+    padding: 1rem;
+    background-color: rgba(255, 255, 255, 0.9);
+    border-radius: 6px;
+}
+
+.member-bio h4 {
+    color: var(--color-secondary);
+    margin-bottom: 0.5rem;
+    font-size: 1.2rem;
+}
+
+.member-bio p {
+    color: var(--color-text);
+    line-height: 1.6;
+    margin-bottom: 1rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+    .team-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .team-member {
+        margin: 1rem;
+    }
 }
