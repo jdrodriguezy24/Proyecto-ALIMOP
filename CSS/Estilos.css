@@ -1,5 +1,6 @@
 /* Variables globales */
 :root {
+    /* Colores */
     --color-primary: #0a4d68;
     --color-secondary: #088395;
     --color-accent: #05bfdb;
@@ -7,9 +8,28 @@
     --color-dark: #1a1a1a;
     --color-text: #333333;
     --color-text-light: #ffffff;
+    
+    /* Tipografía */
     --font-primary: 'Roboto', sans-serif;
     --font-secondary: 'Open Sans', sans-serif;
+    
+    /* Sombras */
+    --shadow-sm: 0 3px 10px rgba(0,0,0,0.1);
+    --shadow-md: 0 5px 15px rgba(0,0,0,0.2);
+    --shadow-lg: 0 5px 20px rgba(0,0,0,0.2);
+    
+    /* Bordes */
+    --border-radius-sm: 6px;
+    --border-radius-md: 8px;
+    --border-radius-lg: 10px;
+    
+    /* Transiciones */
     --transition: all 0.3s ease-in-out;
+    
+    /* Layout */
+    --grid-template: repeat(auto-fit, minmax(300px, 1fr));
+    --gap-standard: 2rem;
+    --padding-standard: 2rem;
 }
 
 /* Estilos base */
@@ -78,12 +98,12 @@ body {
 }
 
 .section {
-    padding: 4rem 2rem;
+    padding: var(--padding-standard);
     margin: 2rem auto;
     max-width: 1200px;
     background-color: rgba(255, 255, 255, 0.95);
-    border-radius: 10px;
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    border-radius: var(--border-radius-lg);
+    box-shadow: var(--shadow-md);
     color: var(--color-text);
 }
 
@@ -217,72 +237,23 @@ figure img {
 }
 
 /* Equipo */
-.team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 2rem;
-}
-
-.team-member {
-    background-color: rgba(255, 255, 255, 0.9);
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: all 0.3s ease;
-    cursor: pointer;
-    position: relative;
-    overflow: hidden;
-}
-
-.team-member:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-}
-
-.member-bio {
-    max-height: 0;
-    overflow: hidden;
-    transition: max-height 0.3s ease-out;
-    background-color: rgba(255, 255, 255, 0.95);
-}
-
-.member-bio.expanded {
-    max-height: 500px; /* Ajusta este valor según sea necesario */
-    transition: max-height 0.5s ease-in;
-}
-
-.team-member h3 {
-    color: var(--color-primary);
-    margin-bottom: 1rem;
-    position: relative;
-    padding-bottom: 0.5rem;
-}
-
-.team-member h3::after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 2px;
-    background-color: var(--color-accent);
-    transition: width 0.3s ease;
-}
-
 #Estudio{
     width: 600px;
     height: 400px;
 }
 
 /* Footer */
-.site-footer {
+footer {
     background-color: var(--color-dark);
     color: var(--color-text-light);
+    display: flex;
+    justify-content: center;
+    align-items: center;
     text-align: center;
     padding: 2rem;
-    position: relative;
     width: 100%;
     margin-top: 4rem;
+    min-height: 80px;
 }
 
 /* Estilos del equipo */
@@ -303,31 +274,33 @@ figure img {
 
 .team-member {
     background-color: white;
-    padding: 2rem;
-    border-radius: 8px;
-    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    padding: var(--padding-standard);
+    border-radius: var(--border-radius-md);
+    box-shadow: var(--shadow-sm);
+    transition: var(--transition);
     cursor: pointer;
+    position: relative;
+    overflow: hidden;
 }
 
 .team-member:hover {
     transform: translateY(-5px);
-    box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+    box-shadow: var(--shadow-lg);
 }
 
 .member-bio {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease;
+    transition: max-height 0.5s ease, opacity 0.3s ease, transform 0.3s ease;
     opacity: 0;
     transform: translateY(-10px);
+    background-color: rgba(255, 255, 255, 0.95);
 }
 
 .member-bio.expanded {
     max-height: 1000px;
     opacity: 1;
     transform: translateY(0);
-    transition: max-height 0.5s ease, opacity 0.3s ease, transform 0.3s ease;
 }
 
 .team-member h3 {
@@ -357,7 +330,7 @@ figure img {
     margin-bottom: 1.5rem;
     padding: 1rem;
     background-color: rgba(255, 255, 255, 0.9);
-    border-radius: 6px;
+    border-radius: var(--border-radius-sm);
 }
 
 .member-bio h4 {
